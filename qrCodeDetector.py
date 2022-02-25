@@ -17,8 +17,10 @@ def checkQrCode():
         if data:
             if data == tr.getTodaysData()[i]:
                 return True
+                break
             elif len(tr.getTodaysData())-1 == i:
                 return False
+                break
             else:
                 i = i+1
         
@@ -31,5 +33,4 @@ def checkQrCode():
     cap.release()
     cv2.destroyAllWindows()
 
-checkQrCode()
 

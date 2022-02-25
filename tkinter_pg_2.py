@@ -1,9 +1,11 @@
 import qrCodeDetector as qrd 
 import tempChecker as temp
+import cv2
 
 
 def go():
         if(qrd.checkQrCode()):
+            cv2.destroyAllWindows()
             put = input("Please input temperature ")
             if temp.tempCheck(float(put)):
                 print("Access Granted")
