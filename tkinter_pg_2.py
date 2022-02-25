@@ -1,2 +1,21 @@
-def hey():
-    return "Hello World"
+import qrCodeDetector as qrd 
+import tempChecker as temp
+
+
+def go():
+    keybs = input("Type Y if Start, type N if Not ")
+
+    if (keybs == "Y"):
+        if(qrd.checkQrCode()):
+            put = input("Please input temperature ")
+            if temp.tempCheck(float(put)):
+                print("Access Granted")
+            else:
+                print("Denied")
+        else:
+            print("Denied")
+    else:
+        print("Denied")
+
+# if __name__ == "__main__":
+#     main()

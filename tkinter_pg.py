@@ -1,27 +1,24 @@
-from tkinter import Tk, Label, Button
+import tkinter as tk
 import tkinter_pg_2 as tp
+import cv2
+
 
 def main():
-    class MyFirstGUI:
-        def __init__(self, master):
-            self.master = master
-            master.title("A simple GUI")
 
-            self.label = Label(master, text="This is our first GUI!")
-            self.label.pack()
+    def write_slogan():
+        print("Tkinter is easy to use!")
 
-            self.greet_button = Button(master, text=tp.hey(), command=self.greet)
-            self.greet_button.pack()
+    root = tk.Tk()
+    frame = tk.Frame(root)
+    frame.pack()
 
-            self.close_button = Button(master, text="Close", command=master.quit)
-            self.close_button.pack()
+    button = tk.Button(frame, text="QUIT", fg="red", command=quit)
+    button.pack(side=tk.LEFT)
+    slogan = tk.Button(frame, text="Go", command=tp.go)
+    slogan.pack(side=tk.LEFT)
 
-        def greet(self):
-            print("Greetings!")
-
-    root = Tk()
-    my_gui = MyFirstGUI(root)
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()
