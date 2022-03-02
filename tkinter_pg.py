@@ -83,9 +83,6 @@ def main():
     slogan = tk.Button(frame, width=10, height=1, text="SCAN QR", fg=theme, border=0, command=bar, bg='white')
     slogan.place(x=220,y=200)
 
-
-
-
     root.mainloop()
 
 

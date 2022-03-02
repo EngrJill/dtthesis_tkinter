@@ -1,5 +1,6 @@
 import cv2
 import thesis_request as tr
+import QrDataBase as qrdb
 
 def checkQrCode():
     # set up camera object
@@ -16,6 +17,7 @@ def checkQrCode():
         
         if data:
             if data == tr.getTodaysData()[i]:
+                qrdb.qrCodeArr.append(data)
                 return True
                 break
             elif len(tr.getTodaysData())-1 == i:
@@ -23,6 +25,7 @@ def checkQrCode():
                 break
             else:
                 i = i+1
+
         
         # display the image preview
         cv2.imshow("code detector", img)
@@ -32,5 +35,7 @@ def checkQrCode():
     # free camera object and exit
     cap.release()
     cv2.destroyAllWindows()
+
+
 
 
