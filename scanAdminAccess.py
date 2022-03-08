@@ -1,7 +1,7 @@
 import cv2
 import SystemDataBase as db
 
-def checkQrCode():
+def checkQrCodeAdmin():
     # set up camera object
     cap = cv2.VideoCapture(0)
     # QR code detection object
@@ -15,18 +15,14 @@ def checkQrCode():
         data, bbox, _ = detector.detectAndDecode(img)
 
         if data:
-            if data == db.todaysQRData:
-                db.qrCodeArr.append(data)
-                print("QR Code is Accepted")
-                return [True, data]
-                break
-            elif len(db.todaysQRData)-1 == i:
-                print("QR Code Not Allowed")
-                return [False, data]
+            if data == "76392085910341-45":
+                print("QR Code for Admin is Accepted")
+                return True
                 break
             else:
-                i = i+1
-
+                print("QR Code for Admin Not Allowed")
+                return False
+                break
         
         # display the image preview
         #cv2.imshow("code detector", img)
@@ -37,6 +33,7 @@ def checkQrCode():
     cap.release()
     cv2.destroyAllWindows()
     
+
 
 
 

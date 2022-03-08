@@ -1,6 +1,6 @@
 import tkinter as tk
-import tkinter_pg_2 as tp
-import cv2
+from scanAdminAccess import checkQrCodeAdmin as cqr
+import idleWindow as iw
 
 from tkinter.ttk import Progressbar
 from tkinter import HORIZONTAL, ttk
@@ -72,7 +72,10 @@ def main():
             r=r+1
         
         root.destroy()
-        tp.go()
+        if (cqr() == True):
+            iw.loopingWindow()
+
+        
             
     progress.place(x=-10,y=235)
 
@@ -84,8 +87,6 @@ def main():
     slogan.place(x=220,y=200)
 
     root.mainloop()
-
-
 
 
 if __name__ == "__main__":

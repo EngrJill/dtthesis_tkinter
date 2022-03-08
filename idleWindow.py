@@ -1,20 +1,24 @@
 from tkinter import *
-import tkinter_pg_2 as tp2
+import systemProcesses as pro
+import systemProcesses as sp
 
 def loopingWindow():
 
-    def destroyWindow():
+    def proceedWindow():
         window.destroy()
-        tp2.go()
+        sp.process()
+        
 
     window = Tk()
     window.title("Welcome to LikeGeeks app")
     window.geometry('350x200')
     lbl = Label(window, text="Hello")
     lbl.grid(column=0, row=0)
-    btn = Button(window, text="Click Me",  command=destroyWindow)
+    btn = Button(window, text="Click Me",  command=proceedWindow)
     btn.grid(column=1, row=0)
     window.mainloop()
+
+
 
 
 
